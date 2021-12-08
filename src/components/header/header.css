@@ -1,0 +1,10 @@
+.signup {
+    background: #FF5C00;
+}
+
+.navlink-current, .navlink {
+    font-size: 14px;
+    line-height: 15px;
+    letter-spacing: 0.05em;
+    color: #242120;
+}
