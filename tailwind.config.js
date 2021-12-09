@@ -5,8 +5,25 @@ module.exports = {
     extend: {
       colors: {
         gray: {
-          light: "#494949"
-        }
+          light: "#494949",
+          faint: "#474747",
+          faintextra: "#535353",
+        },
+        gold: {
+          light: "#ff5c00"
+        },
+        blue: {
+          light: "#0D019A",
+          faint: "#EEF8FF"
+        },
+        green: {
+          light: "#049A01",
+          faint: "#F0FFEE"
+        },
+        black: {
+          variant: "#25201D",
+          light: "#242120"
+        },
       }
     },
   },
