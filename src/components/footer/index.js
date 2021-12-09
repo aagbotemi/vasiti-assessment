@@ -25,7 +25,7 @@ const Footer = () => {
                         <div className='form-control relative'>
                             <input 
                             type='text' placeholder='enter your email' 
-                            className='rounded p-2 h-11' />
+                            className='rounded p-2 h-11 outline-none border-0' />
                             <button type='submit' className="bg-white absolute mt-1 h-9 rounded text-black-light right-28 top-0 px-2 text-xs font-,edium">SUBSCRIBE</button>
                         </div>
                     </form>
