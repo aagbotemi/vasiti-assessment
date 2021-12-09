@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import StoryModal from '../components/storyModal'
 import Experience from '../components/experience'
 import Hero from "./../components/hero"
 import TwoLadies from './../assets/images/black-beautiful-ladies.png'
@@ -8,12 +9,16 @@ import Testimonials from '../components/testimonials'
 import { testimonial1, testimonial2 } from '../dummyData'
 
 const Home = () => {
-    const [isMobileScreen, setIsMobileScreen] = useState(true)
+    const [isMobileScreen, setIsMobileScreen] = useState(true);
+    const [open, setOpen] = useState(false);
 
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+    
     let autoResize = () => {
-        if(window.innerWidth > 768 ){
+        if (window.innerWidth > 768) {
             setIsMobileScreen(false)
-        }else{
+        } else{
             setIsMobileScreen(true)
         }
     }
@@ -32,6 +37,7 @@ const Home = () => {
                 isDark
                 experienceTitle='Tolu & Joy’s Experience'
                 experienceText='I had the best experience shopping with vasiti. Usability of the website was great, very good customer service, an all round great experience. I would definitely be coming back! I had the best experience shopping with vasiti. Usability of the website was great, very good customer service, an all round great experience. I would definitely be coming back!'
+                handleOpen={handleOpen}
                 userType='CUSTOMER'
             />
 
@@ -46,13 +52,13 @@ const Home = () => {
                             userType
                         } = testimonial;
                         return (
-                            <Testimonials
-                                userImage={userImage}
-                                username={username}
-                                userLocation={userLocation}
-                                userTestimony={userTestimony}
-                                userType={userType}
-                            />
+            <Testimonials
+                userImage={userImage}
+                username={username}
+                userLocation={userLocation}
+                userTestimony={userTestimony}
+                userType={userType}
+            />
                         )
                     })
                 }
@@ -63,11 +69,14 @@ const Home = () => {
                 experienceTitle='Josiah’s Experience'
                 experienceText='I had the best experience shopping with vasiti. Usability of the website was great, very good customer service, an all round great experience. I would definitely be coming back! I had the best experience shopping with vasiti. Usability of the website was great, very good customer service, an all round great experience. I would definitely be coming back!'
                 userType='VENDOR'
+                handleOpen={handleOpen}
             />
+
+            
 
             <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-7 mx-16 mt-16 mb-24">
                 {
-                    testimonial2.map(testimonial => {
+                    testimonial2.map((testimonial, index) => {
                         const {
                             userImage,
                             username,
@@ -77,6 +86,7 @@ const Home = () => {
                         } = testimonial;
                         return (
                             <Testimonials
+                                key={index}
                                 userImage={userImage}
                                 username={username}
                                 userLocation={userLocation}
@@ -87,6 +97,10 @@ const Home = () => {
                     })
                 }
             </div>
+
+            {
+                open && <StoryModal handleClose={handleClose} />
+            }
 
         </div>
     )

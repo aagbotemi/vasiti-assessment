@@ -11,3 +11,8 @@
 body {
     font-family: Inter;
 }
+
+
+.modal {
+  transform: translate(-50%, 0%);
+}

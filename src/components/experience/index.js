@@ -8,6 +8,7 @@ const Experience = ({
   userType,
   experienceImage,
   isDark,
+  handleOpen
 }) => {
   return (
     <div
@@ -41,6 +42,7 @@ const Experience = ({
             <Link
               to='/'
               className={`${!isDark && "text-gold-light"} uppercase`}
+              onClick={handleOpen}
             >
               Share Your Own Story!
               <img src={Border} alt="border" className='w-48' />
